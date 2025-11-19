@@ -83,25 +83,39 @@ Status ListInsert_Sq(SqList &L,int i,ElemType e){
     return OK;
 }
 
+//辅助函数：打印顺序表
+void PrintSqList(SqList L){
+    cout<<"顺序表为：";
+    for(int i=0;i<L.length;++i){
+        cout<<L.elem[i]<<" ";
+    }
+    cout<<endl;
+}
+
 int main(){
     SqList L;
+    InitList_Sq(L);
     int n;
     int m;
     cout<<"请输入数组大小："<<endl;
     cin>>n;
     L.length=n;
-    InitList_Sq(L);
-    cout<<"请输入插入的元素:"<<endl;
-    for(int i=1;i<=5;i++){
+    cout<<"请输入"<<n<<"个元素:"<<endl;
+    for(int i=0;i<L.length;i++){
         cin>>m;
-        ListInsert_Sq(L,i,m);
+        L.elem[i]=m;
     }
-    cout<<"线性表为：";
-    for(int i=1;i<=5;i++){
-        cout<<L.elem[i-1]<<" ";
-    }
+    PrintSqList(L);
+    
+    cout<<"请输入插入的单个元素:"<<endl;
+    cin>>m;
+    cout<<"请输入插入位置(第几个元素之前):"<<endl;
+    int k;
+    cin>>k;
+    ListInsert_Sq(L,k,m);
+    PrintSqList(L);
+    
     cout<<endl;
     
     return 0;
-
 }

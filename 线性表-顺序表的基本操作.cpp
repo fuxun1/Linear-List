@@ -12,7 +12,7 @@ typedef int ElemType;
 typedef int Status;
 
 typedef struct{
-    ElemType *elem;     //SqList L; 每个元素：L->elem[i];
+    ElemType *elem;     //elem指向一段连续内存的基地址，每个元素：L.elem[i];
     int length;
 }SqList; 
 
@@ -103,4 +103,5 @@ int main(){
     cout<<endl;
     
     return 0;
+
 }
